@@ -1,0 +1,75 @@
+﻿using FootStore.Domain.Interfaces.Repositories;
+using Microsoft.Extensions.Logging;
+using MongoDB.Bson.Serialization;
+using MongoDB.Driver;
+using System.Linq.Expressions;
+
+namespace FootStore.Infrastructure.Repositories
+{
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    {
+        private readonly IMongoCollection<TEntity> _collection;
+        private readonly ILogger<BaseRepository<TEntity>> _logger;
+
+        public BaseRepository(IMongoDatabase mongoDb, string collectionName, ILogger<BaseRepository<TEntity>> logger)
+        {
+            MapClasses();
+            _collection = mongoDb.GetCollection<TEntity>(collectionName);
+            _logger = logger;
+        }
+
+        public async Task AddAsync(TEntity entity, CancellationToken cancellationToken)
+        {
+            await _collection.InsertOneAsync(entity, cancellationToken: cancellationToken);
+            _logger.LogInformation("Document added successfully on collection {CollectionName}", typeof(TEntity).Name);
+        }
+
+        public async Task<long> DeleteAsync(Expression<Func<TEntity, bool>> filterExpression, CancellationToken cancellationToken)
+        {
+            var result = await _collection.DeleteOneAsync(filterExpression, cancellationToken);
+
+            if (result.DeletedCount >= 1)
+            {
+                _logger.LogInformation("Document deleted successfully from collection {CollectionName}", typeof(TEntity).Name);
+            }
+
+            return result.DeletedCount;
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
+        {
+            var results = await _collection.Find(predicate).ToListAsync(cancellationToken);
+            return results;
+        }
+
+        public async Task<TEntity?> GetOneAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
+        {
+            var result = await _collection.Find(predicate).FirstOrDefaultAsync(cancellationToken);
+            return result;
+        }
+
+        public async Task<long> ReplaceAsync(Expression<Func<TEntity, bool>> filterExpression, TEntity entity, CancellationToken cancellationToken)
+        {
+            var result = await _collection.ReplaceOneAsync(filterExpression, entity, cancellationToken: cancellationToken);
+
+            if (result.ModifiedCount >= 1)
+            {
+                _logger.LogInformation("Document updated successfully from collection {CollectionName}.", typeof(TEntity).Name);
+            }
+
+            return result.ModifiedCount;
+        }
+
+        private static void MapClasses()
+        {
+            if (!BsonClassMap.IsClassMapRegistered(typeof(TEntity)))
+            {
+                BsonClassMap.TryRegisterClassMap<TEntity>(cm =>
+                {
+                    cm.AutoMap();
+                    cm.SetIgnoreExtraElements(true);
+                });
+            }
+        }
+    }
+}
