@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/Adapters/" />
+  <Folder Name="/Adapters/Input/">
+    <Project Path="FootStore.WebApi/FootStore.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/Adapters/Output/">
+    <Project Path="FootStore.Infrastructure/FootStore.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="FootStore.Domain/FootStore.Domain.csproj" />
+  </Folder>
+  <Folder Name="/IoC/">
+    <Project Path="FootStore.CroosCutting/FootStore.CroosCutting.csproj" />
+  </Folder>
+  <Folder Name="/Ports/">
+    <Project Path="FootStore.Application/FootStore.Application.csproj" />
+  </Folder>
+</Solution>

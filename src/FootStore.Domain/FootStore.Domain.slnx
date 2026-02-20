@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../FootStore.WebApi/FootStore.WebApi.csproj" />
+  <Project Path="FootStore.Domain.csproj" />
+</Solution>
