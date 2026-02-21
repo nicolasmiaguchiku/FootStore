@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
-    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:10.0</ContainerBaseImage>
-    <UserSecretsId>a6699250-a877-4f00-9fbf-a0569b51b5a2</UserSecretsId>
-    <DockerfileContext>..\FootStore.Domain</DockerfileContext>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
+		<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:10.0</ContainerBaseImage>
+		<UserSecretsId>a6699250-a877-4f00-9fbf-a0569b51b5a2</UserSecretsId>
+		<DockerfileContext>..\FootStore.Domain</DockerfileContext>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ContainerPort Include="8081" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\FootStore.CroosCutting\FootStore.CroosCutting.csproj" />
+	</ItemGroup>
 
 </Project>

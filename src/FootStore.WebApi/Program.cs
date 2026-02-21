@@ -1,17 +1,26 @@
+using FootStore.CroosCutting.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-builder.Services.AddControllers();
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
+    .AddJsonFile($"appsettings.{enviroment}.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+var applicationSettings = builder.Configuration.GetApplicationSettings(builder.Environment);
+
+builder.Services
+    .AddMongo(applicationSettings.MongoSettings)
+    .AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app
+    .UseHttpsRedirection()
+    .UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
