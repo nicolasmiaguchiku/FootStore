@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\FootStore.Application\FootStore.Application.csproj" />
 		<ProjectReference Include="..\FootStore.Infrastructure\FootStore.Infrastructure.csproj" />
 	</ItemGroup>
 

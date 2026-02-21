@@ -11,6 +11,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\FootStore.Application\FootStore.Application.csproj" />
 		<ProjectReference Include="..\FootStore.CroosCutting\FootStore.CroosCutting.csproj" />
 	</ItemGroup>
 

@@ -6,8 +6,8 @@
         public string Name { get; set; } = default!;
         public string Description { get; set; } = default!;
         public decimal Price { get; set; } = default!;
-        public int Size { get; set; }
-        public string Stock { get; set; } = default!;
+        public string Size { get; set; } = default!;
+        public int Stock { get; set; }
         public string ImageUrl { get; set; } = default!;
 
         public ProductEntity SetId(Guid id)
@@ -34,13 +34,13 @@
             return this;
         }
 
-        public ProductEntity SetSize(int size)
+        public ProductEntity SetSize(string size)
         {
             Size = size;
             return this;
         }
 
-        public ProductEntity SetStock(string stock)
+        public ProductEntity SetStock(int stock)
         {
             Stock = stock;
             return this;
@@ -72,8 +72,8 @@
             public string Name { get; set; } = default!;
             public string Description { get; set; } = default!;
             public decimal Price { get; set; }
-            public int Size { get; set; }
-            public string Stock { get; set; } = default!;
+            public string Size { get; set; } = default!;
+            public int Stock { get; set; }
             public string ImageUrl { get; set; } = default!;
 
             public static Builder Create() => new();
@@ -82,8 +82,8 @@
             public Builder SetName(string name) { Name = name; return this; }
             public Builder SetDescription(string description) { Description = description; return this; }
             public Builder SetPrice(decimal price) { Price = price; return this; }
-            public Builder SetSize(int size) { Size = size; return this; }
-            public Builder SetStock(string stock) { Stock = stock; return this; }
+            public Builder SetSize(string size) { Size = size; return this; }
+            public Builder SetStock(int stock) { Stock = stock; return this; }
             public Builder SetImageUrl(string imageUrl) { ImageUrl = imageUrl; return this; }
 
             public ProductEntity Build()

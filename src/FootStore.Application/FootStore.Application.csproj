@@ -1,9 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="12.1.1" />
+		<PackageReference Include="LiteBus" Version="3.1.0" />
+		<PackageReference Include="LiteBus.Commands.Extensions.MicrosoftDependencyInjection" Version="3.1.0" />
+		<PackageReference Include="LiteBus.Queries.Extensions.MicrosoftDependencyInjection" Version="3.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\FootStore.Domain\FootStore.Domain.csproj" />
+	  <ProjectReference Include="..\FootStore.Infrastructure\FootStore.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Output\" />
+	</ItemGroup>
 
 </Project>
