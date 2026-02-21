@@ -1,5 +1,5 @@
 using FootStore.Application.Input.Commands;
-using FootStore.Application.Input.Requests;
+using FootStore.Application.Requests;
 using LiteBus.Commands.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 

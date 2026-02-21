@@ -1,6 +1,6 @@
 ﻿using FootStore.Domain.ValueObjects;
 
-namespace FootStore.Application.Input.Requests
+namespace FootStore.Application.Requests
 {
     public record AddProductRequest
     {

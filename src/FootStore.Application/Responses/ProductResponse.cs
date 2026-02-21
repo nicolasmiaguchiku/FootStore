@@ -1,6 +1,6 @@
 ﻿using FootStore.Domain.ValueObjects;
 
-namespace FootStore.Application.Output.Responses
+namespace FootStore.Application.Responses
 {
     public class ProductResponse
     {

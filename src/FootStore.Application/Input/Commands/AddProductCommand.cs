@@ -1,4 +1,4 @@
-﻿using FootStore.Application.Input.Requests;
+﻿using FootStore.Application.Requests;
 using FootStore.Domain.Models;
 using LiteBus.Commands.Abstractions;
 
