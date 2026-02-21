@@ -1,4 +1,4 @@
-﻿using FootStore.Application.Input.Mappers;
+﻿using FootStore.Application.Mappers;
 using FootStore.Domain.Interfaces.Repositories;
 using FootStore.Domain.Models;
 using LiteBus.Commands.Abstractions;

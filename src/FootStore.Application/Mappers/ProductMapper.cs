@@ -1,8 +1,9 @@
 ﻿using FootStore.Application.Input.Requests;
+using FootStore.Application.Output.Responses;
 using FootStore.Domain.Entities;
 using FootStore.Domain.ValueObjects;
 
-namespace FootStore.Application.Input.Mappers
+namespace FootStore.Application.Mappers
 {
     public static class ProductMapper
     {
@@ -14,6 +15,18 @@ namespace FootStore.Application.Input.Mappers
                 .SetDetails(request.Details)
                 .SetPrice(request.Price)
                 .Build();
+        }
+
+        public static ProductResponse ToResponse(this ProductEntity entity)
+        {
+            return new ProductResponse
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Description = entity.Description,
+                Details = entity.Details,
+                Price = entity.Price
+            };
         }
     }
 }

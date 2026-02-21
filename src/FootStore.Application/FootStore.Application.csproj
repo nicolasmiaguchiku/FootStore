@@ -18,8 +18,4 @@
 	  <ProjectReference Include="..\FootStore.Infrastructure\FootStore.Infrastructure.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Output\" />
-	</ItemGroup>
-
 </Project>
