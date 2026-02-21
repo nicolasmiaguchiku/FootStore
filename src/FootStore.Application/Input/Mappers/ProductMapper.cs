@@ -1,5 +1,6 @@
 ﻿using FootStore.Application.Input.Requests;
 using FootStore.Domain.Entities;
+using FootStore.Domain.ValueObjects;
 
 namespace FootStore.Application.Input.Mappers
 {
@@ -10,9 +11,8 @@ namespace FootStore.Application.Input.Mappers
             return new ProductEntity.Builder()
                 .SetName(request.Name)
                 .SetDescription(request.Description)
+                .SetDetails(request.Details)
                 .SetPrice(request.Price)
-                .SetSize(request.Size)
-                .SetStock(request.Stock)
                 .Build();
         }
     }
