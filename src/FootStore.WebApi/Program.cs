@@ -13,9 +13,13 @@ var applicationSettings = builder.Configuration.GetApplicationSettings(builder.E
 
 builder.Services
     .AddMongo(applicationSettings.MongoSettings)
+    .AddApiSpecification()
     .AddControllers();
 
 var app = builder.Build();
+
+app.MapOpenApi();
+app.UseSpecification();
 
 app
     .UseHttpsRedirection()
