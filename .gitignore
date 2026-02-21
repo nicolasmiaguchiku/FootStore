@@ -480,3 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+#Ignorar appsettings de desenvolvimento
+src/FootStore.WebApi/appsettings.Development.json
