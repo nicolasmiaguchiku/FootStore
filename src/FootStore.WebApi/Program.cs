@@ -14,6 +14,8 @@ var applicationSettings = builder.Configuration.GetApplicationSettings(builder.E
 builder.Services
     .AddMongo(applicationSettings.MongoSettings)
     .AddApiSpecification()
+    .ConfigureRepositories()
+    .ConfigureLiteBus()
     .AddControllers();
 
 var app = builder.Build();
