@@ -2,12 +2,12 @@
 
 namespace FootStore.Application.Responses
 {
-    public class ProductResponse
+    public record ProductResponse
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; } = default!;
-        public string Description { get; set; } = default!;
-        public decimal Price { get; set; }
-        public IEnumerable<DetailsDto> Details { get; set; } = [];
+        public Guid Id { get; init; }
+        public string Name { get; init; } = default!;
+        public string Description { get; init; } = default!;
+        public decimal Price { get; init; }
+        public IEnumerable<DetailsDto> Details { get; init; } = [];
     }
 }
