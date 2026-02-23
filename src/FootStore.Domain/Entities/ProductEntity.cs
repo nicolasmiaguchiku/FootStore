@@ -41,7 +41,6 @@ namespace FootStore.Domain.Entities
             return this;
         }
 
-
         public ProductEntity SetImageUrl(string imageUrl)
         {
             ImageUrl = imageUrl;

@@ -9,6 +9,8 @@ namespace FootStore.CroosCutting.Extensions
         public static IServiceCollection ConfigureRepositories(this IServiceCollection services)
         {
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
             return services;
         }
     }
