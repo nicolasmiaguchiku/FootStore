@@ -3,7 +3,6 @@ using FootStore.Application.Responses;
 using FootStore.Domain.Filters;
 using FootStore.Domain.Interfaces.Repositories;
 using FootStore.Domain.Models;
-using LiteBus.Messaging.Abstractions;
 using LiteBus.Queries.Abstractions;
 
 namespace FootStore.Application.Output.Queries

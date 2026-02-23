@@ -10,7 +10,7 @@ namespace FootStore.CroosCutting.Extensions
         {
             var settings = configuration.GetSection("Settings").Get<Settings>()!;
 
-            if (@env.IsDevelopment())
+            if (!env.IsDevelopment())
             {
                 settings!.MongoSettings.ConnectionString = GetOrDefault("ConnectionString_Mongo", settings.MongoSettings.ConnectionString);
             }
